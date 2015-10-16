@@ -52,7 +52,8 @@
     } else {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     }
-    
+	
+	[[UIApplication sharedApplication] registerForRemoteNotifications];    
 }
 
 - (void)unregisterApplication:(CDVInvokedUrlCommand*)command
