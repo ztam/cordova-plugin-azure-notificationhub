@@ -14,7 +14,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.microsoft.windowsazure.messaging.NativeRegistration;
+import com.microsoft.windowsazure.messaging.GcmNativeRegistration;
+import com.microsoft.windowsazure.messaging.Registration;
 
 /**
  * Apache Cordova plugin for Windows Azure Notification Hub
@@ -69,11 +70,11 @@ public class NotificationHub extends CordovaPlugin {
                 protected Object doInBackground(Object... params) {
                    try {
                       String gcmId = gcm.register(senderId);
-                      NativeRegistration registrationInfo = hub.register(gcmId);
+                      Registration registrationInfo = hub.register(gcmId);
                       
                       JSONObject registrationResult = new JSONObject();
                       registrationResult.put("registrationId", registrationInfo.getRegistrationId());
-                      registrationResult.put("channelUri", registrationInfo.getGCMRegistrationId());
+                      registrationResult.put("channelUri", registrationInfo.getURI());
                       registrationResult.put("notificationHubPath", registrationInfo.getNotificationHubPath());
                       registrationResult.put("event", "registerApplication");
                       
