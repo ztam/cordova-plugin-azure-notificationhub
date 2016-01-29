@@ -132,7 +132,7 @@ public class NotificationHub extends CordovaPlugin {
 				e.printStackTrace();
 			}
 
-            displayNotification(context, getDrawableIcon(context), contentTitle, contentMessage);
+            //displayNotification(context, getDrawableIcon(context), contentTitle, contentMessage);
 
             if (NotificationHub.getCallbackContext() == null){
                 return;
